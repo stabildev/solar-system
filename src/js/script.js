@@ -223,8 +223,10 @@ const animate = () => {
 renderer.setAnimationLoop(animate)
 
 window.addEventListener('resize', () => {
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  camera.aspect = window.innerWidth / window.innerHeight
+  const newWidth = window.innerWidth
+  const newHeight = window.innerHeight
+  renderer.setSize(newWidth, newHeight)
+  camera.aspect = newWidth / newHeight
   camera.updateProjectionMatrix()
   composer.setSize(newWidth, newHeight)
   smaaPass.setSize(
